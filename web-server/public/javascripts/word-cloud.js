@@ -35,11 +35,12 @@ function draw(data, bounds) {
 
     svg.attr("width", w).attr("height", h);
 
-   /* scale = bounds ? Math.min(
+
+    scale = bounds ? Math.min(
             w / Math.abs(bounds[1].x - w / 2),
             w / Math.abs(bounds[0].x - w / 2),
             h / Math.abs(bounds[1].y - h / 2),
-            h / Math.abs(bounds[0].y - h / 2)) / 2 : 1; */
+			h / Math.abs(bounds[0].y - h / 2)) / 2 : 1; 
 
     var text = vis.selectAll("text")
             .data(data, function(d) {
@@ -75,7 +76,7 @@ function draw(data, bounds) {
                 return d.text;
             });
 
-    vis.transition().attr("transform", "translate(" + [w >> 1, h >> 1] + ")scale(" + scale + ")");
+    //vis.transition().attr("transform", "translate(" + [w >> 1, h >> 1] + ")scale(" + scale + ")");
 }
 
 function update() {
