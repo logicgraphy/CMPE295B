@@ -33,7 +33,7 @@ function draw(data, bounds) {
     var w = window.innerWidth,
         h = window.innerHeight;
 
-    svg.attr("width", w).attr("height", h);
+    svg.attr("width", 750).attr("height", 500);
 
 
     scale = bounds ? Math.min(
