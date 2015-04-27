@@ -77,7 +77,7 @@
         <div class="row">
 
             <div class="col-md-8">
-                <div id="chart"></div>
+                <div id="container"></div>
             </div>
 
             <div class="col-md-4">
@@ -151,10 +151,329 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="javascripts/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-	<script type="text/javascript" src="javascripts/d3.layout.cloud.js"></script>
-	<script type="text/javascript" src="data/tags.js"></script>
-	<script src="javascripts/word-cloud.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script <script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<script>
+	$(function () {
+	    $('#container').highcharts({
+	        chart: {
+	            type: 'spline',
+				zoomType: 'xy',
+				backgroundColor: "#222"
+	        },
+	        title: {
+	            text: ''
+	        },
+	        xAxis: {
+	            categories: ['1999', '2000', '2001', '2002', '2003', '2004',
+	                '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012']
+	        },
+	        yAxis: {
+	            title: {
+	                text: 'Number of Reviews'
+	            },
+				min : 0
+	        },
+	        tooltip: {
+	            crosshairs: true,
+	            shared: false
+	        },
+	        plotOptions: {
+	            spline: {
+	                marker: {
+	                    radius: 4,
+	                    lineColor: '#666666',
+	                    lineWidth: 1
+	                }
+	            }
+	        },
+			legend: {
+		              itemStyle: {
+		                 font: '10pt Trebuchet MS, Verdana, sans-serif',
+		                 color: '#C0BEC2'
+		              },
+		              itemHoverStyle: {
+		                 color: '#C0BEC2'
+		              },
+		              itemHiddenStyle: {
+		                 color: '#444'
+		              }
+
+			},
+	        series: [
+				{
+				    name: 'Arts',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [13,
+				42,
+				77,
+				81,
+				197,
+				274,
+				365,
+				539,
+				1330,
+				1591,
+				2100,
+				2888,
+				4664,
+				8036]
+
+				}, {
+				    name: 'Automotive',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [30,
+				88,
+				115,
+				97,
+				143,
+				303,
+				710,
+				2193,
+				8837,
+				11265,
+				15305,
+				23820,
+				39278,
+				63146]
+				}, {
+				    name: 'Baby',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [29,
+				94,
+				1394,
+				4918,
+				7915,
+				12601,
+				16920,
+				13921,
+				19934,
+				19270,
+				16766,
+				19800,
+				29194,
+				29065]
+				}, {
+				    name: 'Beauty',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [334,
+				1610,
+				131,
+				274,
+				484,
+				2170,
+				4630,
+				6779,
+				18082,
+				21192,
+				21735,
+				26717,
+				42297,
+				68034]
+				}, {
+				    name: 'Clothing_&_Accessories',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [11,
+				57,
+				57,
+				1402,
+				1515,
+				3355,
+				10764,
+				19232,
+				43839,
+				39688,
+				37582,
+				44968,
+				78533,
+				161379]
+				}, {
+				    name: 'Electronics',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [3936,
+				15657,
+				25387,
+				32945,
+				41957,
+				47938,
+				67828,
+				101874,
+				207972,
+				159590,
+				120801,
+				104344,
+				114540,
+				126294]
+				}, {
+				    name: 'Gourmet_Foods',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [78,
+				181,
+				54,
+				119,
+				445,
+				984,
+				1843,
+				7747,
+				18515,
+				16929,
+				18161,
+				20235,
+				24458,
+				32722]
+				}, {
+				    name: 'Health',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [256,
+				3002,
+				599,
+				1122,
+				3053,
+				4605,
+				8891,
+				13962,
+				34848,
+				37689,
+				39289,
+				50940,
+				73036,
+				110861]
+				}, {
+				    name: 'Patio',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [19,
+				983,
+				1248,
+				1665,
+				2434,
+				2515,
+				4165,
+				7505,
+				18558,
+				20164,
+				20888,
+				25820,
+				34723,
+				48044]
+				}, {
+				    name: 'Shoes',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [2,
+				19,
+				1,
+				1561,
+				5019,
+				6242,
+				8796,
+				12833,
+				42444,
+				34132,
+				30382,
+				39998,
+				57622,
+				102428]
+				}, {
+				    name: 'Software',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [531,
+				3497,
+				6439,
+				9053,
+				10668,
+				8922,
+				10712,
+				12362,
+				17350,
+				9229,
+				6693,
+				4460,
+				3528,
+				3339]
+				}, {
+				    name: 'Sports_&_Outdoors',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [121,
+				353,
+				703,
+				1151,
+				2394,
+				4072,
+				11957,
+				22733,
+				63371,
+				60983,
+				63994,
+				71981,
+				102842,
+				155049]
+				}, {
+				    name: 'Video_Games',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [7082,
+				24426,
+				37575,
+				48139,
+				44120,
+				40595,
+				36798,
+				32903,
+				45154,
+				35264,
+				25684,
+				19880,
+				20833,
+				28225]
+				}, {
+				    name: 'Watches',
+				    marker: {
+				        symbol: 'diamond'
+				    },
+				    data: [1,
+				43,
+				47,
+				24,
+				95,
+				359,
+				835,
+				2625,
+				8492,
+				7363,
+				5987,
+				5388,
+				6341,
+				9805]
+				}
+
+	        ]
+	    });
+	});
+	</script>
 
 </body>
 

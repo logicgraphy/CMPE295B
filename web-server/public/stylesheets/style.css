@@ -5,11 +5,18 @@
  */
 
 body {
+	background:#222;
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
-
+.navbar{
+	background-color: black;
+}
 .portfolio-item {
     margin-bottom: 25px;
+}
+
+h1, h3, li, p{
+	color: #C0BEC2;
 }
 
 footer {

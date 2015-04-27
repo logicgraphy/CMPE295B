@@ -77,7 +77,7 @@
         <div class="row">
 
             <div class="col-md-8">
-                <div id="chart"></div>
+                <div id="container"></div>
             </div>
 
             <div class="col-md-4">
@@ -151,10 +151,114 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="javascripts/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-	<script type="text/javascript" src="javascripts/d3.layout.cloud.js"></script>
-	<script type="text/javascript" src="data/tags.js"></script>
-	<script src="javascripts/word-cloud.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/highcharts-more.js"></script>
+	<script <script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<script>
+	var chart;
+	$(function () {
+	    $('#container').highcharts({
+	        chart: {
+	            zoomType: 'xy',
+				backgroundColor: "#222"
+	        },
+	        title: {
+	            text: ''
+	        },
+	        xAxis: [{
+	            categories: ['Arts', 'Automotive', 'Baby', 'Beauty', 'Clothing & Accessories', 'Electronics', 'Gourmet Foods', 'Health', 'Patio', 'Shoes', 'Software', 'Sports & Outdoors', 'Video Games', 'Watches']
+	        }],
+			legend: {
+		              itemStyle: {
+		                 font: '10pt Trebuchet MS, Verdana, sans-serif',
+		                 color: '#C0BEC2'
+		              },
+		              itemHoverStyle: {
+		                 color: '#C0BEC2'
+		              },
+		              itemHiddenStyle: {
+		                 color: '#444'
+		              }
+
+			},
+	        yAxis: [{ // Primary yAxis
+	            labels: {
+	                format: '{value}',
+	                style: {
+	                    color: '#C0BEC2'
+	                }
+	            },
+	            title: {
+	                text: 'Sentiment score %',
+	                style: {
+	                    color: '#C0BEC2'
+	                }
+	            }
+	        }, { // Secondary yAxis
+	            title: {
+	                text: 'Rating score %',
+	                style: {
+	                    color: Highcharts.getOptions().colors[0]
+	                }
+	            },
+	            labels: {
+	                format: '{value}',
+	                style: {
+	                    color: Highcharts.getOptions().colors[0]
+	                }
+	            },
+	            opposite: true
+	        }],
+
+	        tooltip: {
+	            shared: true
+	        },
+
+	        series: [{
+	            name: 'Rating score',
+	            type: 'column',
+	            yAxis: 1,
+	            data: [82.2,
+82.6,
+79.8,
+83.2,
+83.0,
+78.0,
+85.0,
+81.6,
+78.6,
+86.2,
+66.8,
+82.8,
+79.8,
+83.4],
+	            tooltip: {
+	                pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f}%</b> '
+	            }
+	        }, {
+	            name: 'Sentiment score',
+	            type: 'spline',
+	            data: [23.85,
+22.98,
+21.13,
+23.52,
+25.51,
+21.70,
+25.84,
+20.36,
+20.16,
+25.29,
+14.92,
+23.23,
+10.69,
+25.07],
+	            tooltip: {
+	                pointFormat: '<br><span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f}%</b> '
+	            }
+	        }]
+	    });
+	});
+	</script>
 
 </body>
 
