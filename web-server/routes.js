@@ -7,4 +7,6 @@ exports.setup = function(params) {
 	app.get('/review_trend_gender', controllers.review_trend_gender); 
 	app.get('/review_trend_category', controllers.review_trend_category); 
 	app.get('/score_vs_sentiment', controllers.score_vs_sentiment);
+	app.get('/avg_sentiments_gender', controllers.avg_sentiments_gender);
 };
+

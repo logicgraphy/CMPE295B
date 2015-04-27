@@ -6,14 +6,14 @@ var config = require('./dbconfig.js');
 var express = require('express');
 var routes = require('./routes');
 var mongoose = require('mongoose');
-mongoose.connect(config.db.mongodb);
+//mongoose.connect(config.db.mongodb);
 var models = require('./models')({ mongoose: mongoose });
-var controllers = require('./controllers')({mongoose: mongoose});
+var controllers = require('./controllers')();//({mongoose: mongoose});
 var http = require('http');
 var path = require('path');
 var hbs = require('hbs');
 var app = express();
-var products = mongoose.model('products');
+//var products = mongoose.model('products');
 
 // Configuration
 app.configure(function(){	

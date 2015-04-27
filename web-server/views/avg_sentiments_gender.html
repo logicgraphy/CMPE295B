@@ -102,10 +102,16 @@
             <div class="col-lg-12">
                 <h3 class="page-header">Observations</h3>
             </div>
-			
+
             <div class="col-sm-3 col-xs-6">
                 <a href="/">
                     <img class="img-responsive portfolio-item" src="images/word_cloud.png" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="/review_trend_gender">
+                    <img class="img-responsive portfolio-item" src="images/review_trend_gender.png" alt="">
                 </a>
             </div>
 
@@ -118,12 +124,6 @@
             <div class="col-sm-3 col-xs-6">
                 <a href="/score_vs_sentiment">
                     <img class="img-responsive portfolio-item" src="images/score_vs_sentiment.png" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="/avg_sentiments_gender">
-                    <img class="img-responsive portfolio-item" src="images/avg_sentiments_gender.png" alt="">
                 </a>
             </div>
 
@@ -167,18 +167,42 @@
 	        },
 
 	        xAxis: {
-	            categories: ['Arts', 'Automotive', 'Baby', 'Beauty', 'Clothing & Accessories', 'Electronics', 'Gourmet Foods', 'Health', 'Patio', 'Shoes', 'Software', 'Sports & Outdoors', 'Video Games', 'Watches']
+	            categories: ['Brother 1034D 3 or 4 Thread Serger',
+'Brother CS6000i Feature-Rich Sewing Machine',
+'Battery Tender Junior 12V',
+'Battery Tender Plus 12V',
+'Pampers Baby Dry Diapers', 
+'Farouk CHI 1 Inch Ceramic Flat Hairstyling Iron',
+'Mavala Stop',
+'Amazon.com::Clothing',
+'The Mountain Three Wolf Moon Short Sleeve Tee',
+'DVI Gear HDMI Cable 2M 6 feet',
+'Garmin Portable Friction Mount',
+'Pure Organic Raw Fruit & Nut Bars',
+'Tuscan Whole Milk 1 Gallon 128 fl oz',
+'Marpac Dohm-DS Dual Speed Sound Conditioner',
+'Waterpik Ultra Water Flosser',
+'Classic Accessories Veranda Cart-Style Barbecue Cover',
+'Contech CRO101 Scarecrow Motion Activated Sprinkler',
+'Sperry Top-Sider Mens Canoe Moc Boat Shoes',
+'Microsoft Office Home and Student 2007',
+'TurboTax Deluxe 2002',
+'Klean Kanteen Stainless Steel Water Bottle',
+'Omron HJ-112 Pocket Pedometer',
+'EA-Spore',
+'Xbox 360 LIVE 4000 Points',
+'Casio Mens DW5600E-1V G-Shock Classic Digital Watch',
+'Citizen Mens BM8180-03E Eco-Drive Canvas Strap Watch']
 	        },
 
 	        yAxis: {
-	            allowDecimals: false,
-	            min: 0,
+	            allowDecimals: true,
+				max: 0.4,
 	            type: "linear",
 	            title: {
 	                text: 'Number of reviews'
-	            },
+	            }
 	        },
-
 	        tooltip: {
 	            formatter: function () {
 	                return '<b>' + this.x + '</b><br/>' +
@@ -200,12 +224,62 @@
 			},
 	        series: [{
 	            name: 'Male',
-	            data: [9480, 91649, 71509, 81757, 236918, 562403, 56718, 170144, 94424, 149097, 54635, 272524, 255595, 29725],
+	            data: [0.265,
+0.280,
+0.247,
+0.221,
+0.204,
+0.204,
+0.055,
+0.248,
+0.154,
+0.279,
+0.278,
+0.226,
+0.136,
+0.198,
+0.229,
+0.286,
+0.172,
+0.248,
+0.228,
+0.070,
+0.214,
+0.264,
+-0.032,
+0.227,
+0.198,
+0.2201],
 	            stack: 'male',
 	            color: "#4791FF"
 	        }, {
 	            name: 'Female',
-	            data: [16618, 96647, 129427, 158838, 346265, 658383, 98147, 255840, 122441, 240330, 53481, 352450, 204748, 38672],
+	            data: [0.261,
+0.269,
+0.254,
+0.233,
+0.233,
+0.216,
+0.067,
+0.272,
+0.155,
+0.277,
+0.287,
+0.217,
+0.139,
+0.2,
+0.246,
+0.296,
+0.185,
+0.272,
+0.255,
+0.071,
+0.224,
+0.271,
+-0.0341,
+0.218,
+0.207,
+0.231],
 	            stack: 'female',
 	            color: "#FFC1FF"
 	        }]

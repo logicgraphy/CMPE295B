@@ -104,26 +104,26 @@
             </div>
 
             <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                <a href="/">
+                    <img class="img-responsive portfolio-item" src="images/word_cloud.png" alt="">
                 </a>
             </div>
 
             <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                <a href="/review_trend_gender">
+                    <img class="img-responsive portfolio-item" src="images/review_trend_gender.png" alt="">
                 </a>
             </div>
 
             <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                <a href="/review_trend_category">
+                    <img class="img-responsive portfolio-item" src="images/review_trend_category.png" alt="">
                 </a>
             </div>
 
             <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                <a href="/avg_sentiments_gender">
+                    <img class="img-responsive portfolio-item" src="images/avg_sentiments_gender.png" alt="">
                 </a>
             </div>
 
@@ -185,26 +185,26 @@
 	            labels: {
 	                format: '{value}',
 	                style: {
-	                    color: '#C0BEC2'
+	                    color: '#E56CF5'
 	                }
 	            },
 	            title: {
 	                text: 'Sentiment score %',
 	                style: {
-	                    color: '#C0BEC2'
+	                    color: '#E56CF5'
 	                }
 	            }
 	        }, { // Secondary yAxis
 	            title: {
 	                text: 'Rating score %',
 	                style: {
-	                    color: Highcharts.getOptions().colors[0]
+	                    color: '#6CF5F5'
 	                }
 	            },
 	            labels: {
 	                format: '{value}',
 	                style: {
-	                    color: Highcharts.getOptions().colors[0]
+	                    color: '#6CF5F5'
 	                }
 	            },
 	            opposite: true
@@ -217,6 +217,7 @@
 	        series: [{
 	            name: 'Rating score',
 	            type: 'column',
+				color: '#6CF5F5',
 	            yAxis: 1,
 	            data: [82.2,
 82.6,
@@ -232,12 +233,14 @@
 82.8,
 79.8,
 83.4],
-	            tooltip: {
+				
+					tooltip: {
 	                pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f}%</b> '
 	            }
 	        }, {
 	            name: 'Sentiment score',
 	            type: 'spline',
+				lineColor: '#E56CF5',
 	            data: [23.85,
 22.98,
 21.13,
@@ -252,6 +255,11 @@
 23.23,
 10.69,
 25.07],
+					marker: {
+			                lineWidth: 2,
+			                lineColor: '#E56CF5',
+			                fillColor: 'white'
+			            },
 	            tooltip: {
 	                pointFormat: '<br><span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f}%</b> '
 	            }

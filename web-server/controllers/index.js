@@ -1,6 +1,6 @@
 function controllers(params) {    
-    var mongoose = params.mongoose;      
-    var products = mongoose.model('products');
+    //var mongoose = params.mongoose;      
+    //var products = mongoose.model('products');
     controllers.index = function (req, res) {  	
 		res.render('index', {'chart_title': 'Popular Brands', 'chart_subtitle': 'by number of reviews'});	
 	};
@@ -15,6 +15,10 @@ function controllers(params) {
 	
     controllers.score_vs_sentiment = function (req, res) {  	
 		res.render('score_vs_sentiment', {'chart_title': 'Ratings Vs Sentiments', 'chart_subtitle': 'by average per category'});	
+	};
+	
+    controllers.avg_sentiments_gender = function (req, res) {  	
+		res.render('avg_sentiments_gender', {'chart_title': 'Gender based average sentiments', 'chart_subtitle': 'for top reviewed products'});	
 	};
 	
 	

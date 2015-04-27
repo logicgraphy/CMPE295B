@@ -62,26 +62,63 @@ db.products.aggregate([
 //Top 20 products - avg sentiment by gender
 db.products.aggregate([
     { $unwind : "$reviews" },
-    { $group: {db.products.aggregate([
-    { $unwind : "$reviews" },
-	{$match: {'_id' : "B000NWS3SG"}},
+	{$match: {'category' : "Watches"}},
     { $group: {
-        _id: {title: "$title", gender: '$reviews.user_gender'},
-        avgSentiment: { $avg: "$reviews.sentiment" },
-		count: { $sum: 1 }}},
-])
         _id: {product: "$_id"},
         count: { $sum: 1 }}},
 	{$sort:{"count": -1}},
-		{$limit: 25}
+		{$limit: 2}
 ])
+
 
 db.products.aggregate([
     { $unwind : "$reviews" },
-	{$match: {'_id' : "B00009WO07"}},
+	{$match: {'_id' : {$in : ["B000JQM1DE",
+"B0000CBK1L",
+"B000CITK8S",
+"B00068XCQU",
+"B00009WO07",
+"B00026442M",
+"B0009V1YR8",
+"B0000YUXI0",
+"B000NZW3KC",
+"B000A0PVV8",
+"B0002L5R78",
+"B000LRMS66",
+"B00032G1S0",
+"B000FEH8NI",
+"B000GLRREU",
+"B000KUHFGM",
+"B000071NUS",
+"B000HCNEWM",
+"B0002M7SPG",
+"B000EITEQO",
+"B000HCZ8EO",
+"B00006ULHT",
+"B0000U1OCI",
+"B000FN7UWS",
+"B000FKBCX4",
+"B000NDRT62",
+"B000EQS1JW",
+"B000GAYQKY"]}}},
     { $group: {
-        _id: {title: "$title", gender: '$reviews.user_gender'},
+        _id: {category: "$category", title: "$title", gender: '$reviews.user_gender'},
         avgSentiment: { $avg: "$reviews.sentiment" },
 		count: { $sum: 1 }}},
+{$sort:{"_id.category": 1, "_id.title" : 1}},		
 ])
 
+	"Arts",
+	"Automotive",
+	"Baby",
+	"Beauty",
+	"Clothing_&_Accessories",
+	"Electronics",
+	"Gourmet_Foods",
+	"Health",
+	"Patio",
+	"Shoes",
+	"Software",
+	"Sports_&_Outdoors",
+	"Video_Games",
+	"Watches"
