@@ -1,3 +1,19 @@
+//total number of reviews
+db.products.aggregate([
+    { $unwind : "$reviews" },
+    { $group: {
+        _id: '',
+        count: { $sum: 1 }}},
+])
+
+//total number of users
+db.products.aggregate([
+    { $unwind : "$reviews" },
+    { $group: { _id: '$reviews.user_id'}},
+    { $group: {_id: 1, count: { $sum: 1 }}},
+])
+
+
 //Count products per brand
 db.products.aggregate([{$group:{"_id" : "$brand", count: {$sum:1}}}, {$sort : {count : -1}}])
 
@@ -122,3 +138,15 @@ db.products.aggregate([
 	"Sports_&_Outdoors",
 	"Video_Games",
 	"Watches"
+
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+

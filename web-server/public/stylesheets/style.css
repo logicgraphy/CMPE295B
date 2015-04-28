@@ -14,9 +14,16 @@ body {
 .portfolio-item {
     margin-bottom: 25px;
 }
+.table-condensed{
+	margin-left: 25px;
+}
 
-h1, h3, li, p{
+h1, h3, li, p, td{
 	color: #C0BEC2;
+}
+p{
+	text-align: justify;
+	text-justify: inter-word;
 }
 
 footer {

@@ -1,3 +1,4 @@
+$( document ).ready(function() {
 var fill = d3.scale.category20b();
 
 var w = 750,
@@ -64,7 +65,7 @@ function draw(data, bounds) {
             })
             .style("opacity", 1e-6)
             .transition()
-            .duration(1000)
+            .duration(2000)
             .style("opacity", 1);
     text.style("font-family", function(d) {
         return d.font;
@@ -75,7 +76,6 @@ function draw(data, bounds) {
             .text(function(d) {
                 return d.text;
             });
-
     //vis.transition().attr("transform", "translate(" + [w >> 1, h >> 1] + ")scale(" + scale + ")");
 }
 
@@ -87,3 +87,5 @@ function update() {
     }
     layout.stop().words(tags).start();
 }
+
+});
