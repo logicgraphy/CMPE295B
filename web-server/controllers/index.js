@@ -10,7 +10,7 @@ function controllers(params) {
 	};
 	
     controllers.review_trend_category = function (req, res) {  	
-		res.render('review_trend_category', {'chart_title': 'Categories Review Trend', 'chart_subtitle': 'by number of reviews per year'});	
+		res.render('review_trend_category', {'chart_title': 'Categories Reviews Trend', 'chart_subtitle': 'by number of reviews per year'});	
 	};
 	
     controllers.score_vs_sentiment = function (req, res) {  	
