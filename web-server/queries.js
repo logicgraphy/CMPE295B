@@ -49,6 +49,16 @@ db.products.aggregate([
     {$sort:{"_id.category": 1, "_id.date" : 1}}
 ])
 
+//Top product by brand, avg sentiments, per year
+db.products.aggregate([
+    { $unwind : "$reviews" },
+	{$match: {'brand' : {$eq : "JanSport"}}},
+    { $group: {
+        _id: {$year: "$reviews.date"},
+		avgSentiment: { $avg: "$reviews.sentiment" }}},
+    {$sort:{"_id": 1}}
+])
+
 // Get avg score & avg sentiment per category.
 db.products.aggregate([
     { $unwind : "$reviews" },

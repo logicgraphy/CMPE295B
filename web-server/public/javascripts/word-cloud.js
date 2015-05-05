@@ -75,7 +75,21 @@ function draw(data, bounds) {
             })
             .text(function(d) {
                 return d.text;
-            });
+            });		
+	text.on("click", function(d) {
+		//draw trend chart for brand
+		barGraph( d.text)
+		});
+	
+	var org_size = 10;	
+	text.on("mouseover", function(d){
+		org_size = d.size
+		d3.select(this).style("font-size", d.size+15).transition();
+		});
+	text.on("mouseout", function(d) {
+			d3.select(this).style("font-size", org_size).transition();
+		});
+		
     //vis.transition().attr("transform", "translate(" + [w >> 1, h >> 1] + ")scale(" + scale + ")");
 }
 
@@ -86,6 +100,61 @@ function update() {
         fontSize.domain([+tags[tags.length - 1].value || 1, +tags[0].value]);
     }
     layout.stop().words(tags).start();
+}
+
+var opts = {
+  lines: 17, // The number of lines to draw
+  length: 2, // The length of each line
+  width: 14, // The line thickness
+  radius: 8, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#fff', // #rgb or #rrggbb or array of colors
+  speed: 0.6, // Rounds per second
+  trail: 38, // Afterglow percentage
+  shadow: true, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: '50%', // Top position relative to parent
+  left: '50%' // Left position relative to parent
+};
+
+
+
+function barGraph(brand){
+	svg.remove("g");
+	var target = document.getElementById('chart');
+	var spinner = new Spinner(opts).spin(target);
+	
+	    var options = {
+	        chart: {
+	            renderTo: 'chart',
+	            type: 'spline',
+				backgroundColor: "#222"
+	        },
+	        title: {
+	            text: ''
+	        },
+	        xAxis: {categories : [] },
+	        series: [{}]
+	    };
+		var url = "http://localhost:8080/api/v1/getAverageYearlySentiment/" + brand;
+	    $.getJSON(url, function(data) {
+			var arr_data = [];
+			var arr_date = [];
+			data.forEach(function(d){
+				arr_data.push(d.avg_sentiment);
+				arr_date.push(d._id);
+			});
+	        options.series[0].data = arr_data;
+			options.xAxis.categories = arr_date;
+			spinner.stop();
+	        var chart = new Highcharts.Chart(options);
+	    });
+
+	
 }
 
 });

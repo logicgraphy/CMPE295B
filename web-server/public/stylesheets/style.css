@@ -17,7 +17,9 @@ body {
 .table-condensed{
 	margin-left: 25px;
 }
-
+.spinner{
+	margin-top: 150px;
+}
 h1, h3, li, p, td{
 	color: #C0BEC2;
 }
