@@ -138,6 +138,11 @@ function barGraph(brand){
 	        title: {
 	            text: ''
 	        },
+	        yAxis: {
+	            title: {
+	                text: 'Avg Sentiment Score'
+	            }
+	        },
 	        xAxis: {categories : [] },
 	        series: [{}]
 	    };
@@ -151,6 +156,7 @@ function barGraph(brand){
 			});
 	        options.series[0].data = arr_data;
 			options.xAxis.categories = arr_date;
+			options.series[0].name = brand
 			spinner.stop();
 	        var chart = new Highcharts.Chart(options);
 	    });
