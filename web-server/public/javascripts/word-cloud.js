@@ -106,12 +106,12 @@ var opts = {
   lines: 17, // The number of lines to draw
   length: 2, // The length of each line
   width: 14, // The line thickness
-  radius: 8, // The radius of the inner circle
+  radius: 10, // The radius of the inner circle
   corners: 1, // Corner roundness (0..1)
   rotate: 0, // The rotation offset
   direction: 1, // 1: clockwise, -1: counterclockwise
   color: '#fff', // #rgb or #rrggbb or array of colors
-  speed: 0.6, // Rounds per second
+  speed: 1, // Rounds per second
   trail: 38, // Afterglow percentage
   shadow: true, // Whether to render a shadow
   hwaccel: false, // Whether to use hardware acceleration
@@ -127,7 +127,8 @@ function barGraph(brand){
 	svg.remove("g");
 	var target = document.getElementById('chart');
 	var spinner = new Spinner(opts).spin(target);
-	
+	$('h1.page-header').html(brand + "'s opinion trend <small> by user sentiments<small>");
+	$('.vizdesc').html("Brand-based average sentiments and polarity plotted based on per review year. This graph shows the brand review trend over the years. The overall  behavior of the graph can be attributed to brand's gaining/loosing traction as well as an increase in public's willingness to share opinions online.");
 	    var options = {
 	        chart: {
 	            renderTo: 'chart',

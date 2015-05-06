@@ -1,6 +1,5 @@
-var tags = [{ "key" : "Dickies", "value" : 56806 },
+var tags = [{ "key" : "Dickies", "value" : 36806 },
 { "key" : "Wrangler", "value" : 22977 },
-{ "key" : "Jos. A. Bank", "value" : 22876 },
 { "key" : "JanSport", "value" : 22261 },
 { "key" : "Carhartt", "value" : 16661 },
 { "key" : "Levi's", "value" : 16052 },
