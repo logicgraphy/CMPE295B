@@ -140,7 +140,7 @@ function barGraph(brand){
 	        xAxis: {categories : [] },
 	        series: [{}]
 	    };
-		var url = "http://127.0.0.1:8080/api/v1/getAverageYearlySentiment/" + brand;
+		var url = "http://52.24.34.160:8080/api/v1/getAverageYearlySentiment/" + brand;
 	    $.getJSON(url, function(data) {
 			var arr_data = [];
 			var arr_date = [];
